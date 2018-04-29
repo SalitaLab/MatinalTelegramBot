@@ -34,7 +34,7 @@ dispatcher = updater.dispatcher
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
 
-set_pun_handler = CommandHandler('setPun', setPun)
+set_pun_handler = CommandHandler('setpun', setPun)
 dispatcher.add_handler(set_pun_handler)
 
 comment_handler = CommandHandler('c', comment)
