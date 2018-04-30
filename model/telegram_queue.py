@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import codecs
 
 class Queue():
 
@@ -31,12 +34,12 @@ class Telegram_Queue(Queue):
             texto += self.queue[i]
             texto += "\n"
 
-        file = open(path, "w")
+        file = codecs.open(path, "w", encoding='utf8')
         file.write(texto)
         file.close()
 
     def load_from_file(self, path):
-        file = open(path, "r")
+        file = codecs.open(path, "r", encoding='utf8')
         array = file.read().split('\n')
         array = array[:(len(array) - 1)]
 

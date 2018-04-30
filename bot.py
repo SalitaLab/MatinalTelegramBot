@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from telegram.ext import Updater, CommandHandler
 import logging
 import hidden
@@ -18,7 +21,8 @@ def setPun(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text="La nueva pun es:\n" + "\"" + texto + "\"")
 
 def comment(bot, update):
-    telQueue.push(update.message.text.split(' ', 1)[1])
+    telQueue.push(update.effective_user.username + ": " + update.message.text.split(' ', 1)[1])
+    telQueue.save_in_file("database/telegram_messages.txt")
 
 def save(bot, update):
     telQueue.save_in_file("database/telegram_messages.txt")
